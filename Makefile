@@ -29,7 +29,7 @@ INCLUDES=-I./$(PATHH) -I$(SIMAVRDIR)
 OBJCOPY=avr-objcopy
 OBJFLAGS=-j .text -j .data -O ihex
 # Debugger
-GDB=/Users/christopherluu/Documents/GitHub/cs120b/gdb-9.2/gdb/gdb
+GDB=avr-gdb
 # GDB Testing
 WHILELINENO=$$(grep -n -m 1 "while\s*(1)" source/main.c | cut -f1 -d:)
 GDBCOMMANDS=$(PATHT)commands.gdb
