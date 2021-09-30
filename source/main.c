@@ -26,7 +26,7 @@ int main(void) {
         tmpA1 = (PINA & 0x02) >> 1;
         
         if (tmpA0 == 0x01 && tmpA1 == 0x00) { 
-            tempB = 0x01;
+            tmpB = 0x01;
         }
         else{
             tmpB = 0x00;
