@@ -30,7 +30,7 @@ int main(void) {
         if((tmpA > tmpC) && ((tmpA-tmpC) > 80)){
             PORTD = PORTD | 0x02;
         }
-        else if ((tmpC > tmpA) && ((tmpC-tmpA > 80)){
+        else if ((tmpC > tmpA) && ((tmpC-tmpA) > 80)){
             PORTD = PORTD | 0x02;
         }
         else if ((tmpA == tmpC){
