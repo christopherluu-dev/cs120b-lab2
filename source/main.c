@@ -30,7 +30,7 @@ int main(void) {
         tmpA2 = (PINA & 0x03) >> 2;
         tmpA3 = (PINA & 0x04) >> 3;
         
-        cntavail = 4 - (tmpA0 + tmpA1 + tmpA2 + tmpA)3;
+        cntavail = 4 - (tmpA0 + tmpA1 + tmpA2 + tmpA3);
         PORTC = cntavail;
     }
     return 0;
