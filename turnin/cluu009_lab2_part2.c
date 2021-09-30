@@ -27,8 +27,8 @@ int main(void) {
     while (1) {
         tmpA0 = PINA & 0x01;
         tmpA1 = (PINA & 0x02) >> 1;
-        tmpA2 = (PINA & 0x03) >> 2;
-        tmpA3 = (PINA & 0x04) >> 3;
+        tmpA2 = (PINA & 0x04) >> 2;
+        tmpA3 = (PINA & 0x08) >> 3;
         
         cntavail = 4 - (tmpA0 + tmpA1 + tmpA2 + tmpA3);
         PORTC = cntavail;
