@@ -19,25 +19,39 @@ int main(void) {
     DDRC = 0x00; PORTC = 0xFF;
     DDRD = 0xFF; PORTD = 0x00;
 
-    unsigned char tmpA = PINA;
-    unsigned char tmpB = PINB;
-    unsigned char tmpC = PINC;
+    unsigned char tmpA;
+    unsigned char tmpB;
+    unsigned char tmpC;
+    unsigned char tmpD;
     unsigned char totalWeight;
 
     while (1) {
+        tmpA = PINA;
+        tmpB = PINB;
+        tmpC = PINC;
+        tmpD = 0x00;
         totalWeight = tmpA + tmpB + tmpC;
-        PORTD = (totalWeight > 140) ? 0x01 : 0x00;
-        if((tmpA > tmpC) && ((tmpA-tmpC) > 80)){
-            PORTD = PORTD | 0x02;
+        
+        if(totalWeight > 140){
+            tmpD = tmpD | 0x01;
         }
-        else if ((tmpC > tmpA) && ((tmpC-tmpA) > 80)){
-            PORTD = PORTD | 0x02;
+        else{
+            tmpD = tmpD & 0x00;
         }
-        else if (tmpA == tmpC){
-            PORTD = PORTD | 0x00;    
+        
+        if((tmpA - tmpC) > 80){
+            tmpD = tmpD | 0x02;
+        }
+        else if((tmpC - tmpA) > 80){
+            tmpD = tmpD | 0x02;
+        }
+        else{
+            tmpD = tmpD & 0x01;
         }
 
-        PORTD = PORTD | ((totalWeight >> 2) << 4);
+        tmpD = tmpD | ((totalWeight >> 2) & 0xFC);
+        PORTD = tmpD;
+
     }
     return 0;
 }
